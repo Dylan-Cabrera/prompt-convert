@@ -6,29 +6,37 @@ function convertCurrency(pesos){
 
 let history= []
 
-alert("Convertidor de ARS a USD ")
-num= Number(prompt("1-divisa   2-salir"))
+do {
+    num= Number(prompt("Convertidor de ARS a USD \n 1-divisa   2-salir"))
 
-switch (num) {
-    case 1:
-        pesos = Number(prompt("Ingrese la divisa ARS"))
-        resultado = convertCurrency(pesos)
+
+
+    switch (num) {
+        case 1:
+            pesos = Number(prompt("Ingrese la divisa ARS"))
+            resultado = convertCurrency(pesos)
         
-        alert(`${resultado}USD `)
+            alert(`${resultado.toFixed(2)}USD `)
 
-        let operacion = {
-            tipo:"ARS",
-            entrada: pesos,
-            salida: resultado,
-            fecha: new Date().toLocaleString()
-        }
-        console.log(history.push(operacion))
+            let operacion = {
+                tipo:"ARS -> USD",
+                pesos: pesos,
+                dolares: resultado.toFixed(2),
+                fecha: new Date().toLocaleString()
+            }
+            history.push(operacion)
 
 
 
-    case 2:
+        case 2:
+            break
         
 
-    default:
-
+        default:
+            alert("Opción Invalida");
+            continue
+    }
 }
+while (num != 2) {};
+
+console.log(history); 
