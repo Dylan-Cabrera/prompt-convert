@@ -1,7 +1,9 @@
 
+const valorDolar= 1300
+
 function convertCurrency(pesos){
-    return resultado= pesos/1300
-};
+    return pesos/valorDolar
+}; //esta función realiza la conversión
 
 
 let history= []
@@ -13,18 +15,22 @@ do {
 
     switch (num) {
         case 1:
-            pesos = Number(prompt("Ingrese la divisa ARS"))
-            resultado = convertCurrency(pesos)
+            pesos = Number(prompt("Ingrese la divisa ARS")) //se ingresa el valor a covertir
+            
+            resultado = convertCurrency(pesos) // se llama a la funcioón y se guarda dentro de una variable
         
-            alert(`${resultado.toFixed(2)}USD `)
+            alert(`${resultado.toFixed(2)}USD `) //se muestra el resultado
 
+            //se crea el objeto para el historial
             let operacion = {
                 tipo:"ARS -> USD",
                 pesos: pesos,
                 dolares: resultado.toFixed(2),
                 fecha: new Date().toLocaleString()
             }
-            history.push(operacion)
+
+
+            history.push(operacion) //se guarda el objeto en un array
 
 
 
